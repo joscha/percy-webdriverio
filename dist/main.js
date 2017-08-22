@@ -149,7 +149,7 @@ var WebdriverPercy = function WebdriverPercy(browser) {
       });
     }
     return new Promise(function (resolve, reject) {
-      browserInstance.getSource().then(function (source) {
+      Promise.resolve(browserInstance.getSource()).then(function (source) {
         percy.createBuild.then(function (buildId) {
           var rootResource = percyClient.makeResource({
             resourceUrl: '/',
